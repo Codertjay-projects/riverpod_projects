@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1038945209269",
+    "project_id": "codertjay-gram",
+    "storage_bucket": "codertjay-gram.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038945209269:android:b8b13000595ff6cffee7fc",
+        "android_client_info": {
+          "package_name": "codertjay.com.codertjay_gram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038945209269-n0fj77ohqhkg0bkbup2467c3c1trrr4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwPL248O4u4e3DWhjfNJ50eBvWUmNPIOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038945209269-n0fj77ohqhkg0bkbup2467c3c1trrr4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
