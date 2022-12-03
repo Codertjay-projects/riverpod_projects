@@ -1,4 +1,4 @@
-package codertjay.com.codertjay_gram
+package com.codertjay.codertjay_gram
 
 import io.flutter.embedding.android.FlutterActivity
 

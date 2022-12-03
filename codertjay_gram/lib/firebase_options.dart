@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDwPL248O4u4e3DWhjfNJ50eBvWUmNPIOk',
-    appId: '1:1038945209269:android:b8b13000595ff6cffee7fc',
+    appId: '1:1038945209269:android:df96a2b6ec704f76fee7fc',
     messagingSenderId: '1038945209269',
     projectId: 'codertjay-gram',
     storageBucket: 'codertjay-gram.appspot.com',
@@ -59,11 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCzGNXG8dMMuYlzFYsKOOfHkqkM5hYSoPY',
-    appId: '1:1038945209269:ios:628813fe849d6b46fee7fc',
+    appId: '1:1038945209269:ios:51bd1f520dbc81b5fee7fc',
     messagingSenderId: '1038945209269',
     projectId: 'codertjay-gram',
     storageBucket: 'codertjay-gram.appspot.com',
-    iosClientId: '1038945209269-a8jd9hmtkd9ukjfgr3kbfpq5jv8vkikj.apps.googleusercontent.com',
-    iosBundleId: 'codertjay.com.codertjayGram',
+    iosClientId: '1038945209269-52djdhi6in4qfv00dhcr28h88kl6o69l.apps.googleusercontent.com',
+    iosBundleId: 'com.codertjay.codertjayGram',
   );
 }

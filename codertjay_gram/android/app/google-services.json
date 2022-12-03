@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1038945209269:android:b8b13000595ff6cffee7fc",
+        "mobilesdk_app_id": "1:1038945209269:android:df96a2b6ec704f76fee7fc",
         "android_client_info": {
-          "package_name": "codertjay.com.codertjay_gram"
+          "package_name": "com.codertjay.codertjay_gram"
         }
       },
       "oauth_client": [
@@ -29,6 +29,13 @@
             {
               "client_id": "1038945209269-n0fj77ohqhkg0bkbup2467c3c1trrr4h.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1038945209269-52djdhi6in4qfv00dhcr28h88kl6o69l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.codertjay.codertjayGram"
+              }
             }
           ]
         }
