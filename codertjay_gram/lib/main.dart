@@ -1,9 +1,13 @@
+import "dart:developer" as devtools show log;
+
 import 'package:codertjay_gram/state/auth/backend/authenticator.dart';
+import 'package:codertjay_gram/state/auth/models/auth_result.dart';
+import 'package:codertjay_gram/state/auth/providers/auth_state_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'firebase_options.dart';
-import "dart:developer" as devtools show log;
 //https://codertjay-gram.firebaseapp.com/__/auth/handler
 
 extension Log on Object {
@@ -16,7 +20,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -34,33 +42,66 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blueGrey,
           indicatorColor: Colors.blueGrey,
           brightness: Brightness.dark),
-      home: const HomePage(),
+      home: Consumer(
+        builder: (BuildContext context, WidgetRef ref, Widget? child) {
+          final isLoggedIn =
+              ref.watch(authStateProvider).result == AuthResult.success;
+          isLoggedIn.log();
+          if (isLoggedIn) {
+            return const MainView();
+          } else {
+            return const LoginView();
+          }
+        },
+      ),
     );
   }
 }
 
-class HomePage extends ConsumerWidget {
-  const HomePage({
+// For when you are logged in
+class MainView extends ConsumerWidget {
+  const MainView({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home Page")),
+      appBar: AppBar(title: const Text("Main View")),
+      body: Consumer(
+        builder: (BuildContext context, WidgetRef ref, Widget? child) {
+          return TextButton(
+            onPressed: () async {
+              await ref.read(authStateProvider.notifier).logOut();
+            },
+            child: const Text("Logout"),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// for when you are not logged in
+class LoginView extends ConsumerWidget {
+  const LoginView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Login View"),
+      ),
       body: Column(
         children: [
           TextButton(
-            onPressed: () async {
-              final result =await Authenticator().loginWithGoogle();
-              result.log();
-            },
+            onPressed: ref.read(authStateProvider.notifier).loginWithGoogle,
             child: const Text("SigIn In with Google"),
           ),
           TextButton(
-            onPressed: () async{
-              final result = await Authenticator().loginWithFacebook();
-            },
+            onPressed: ref.read(authStateProvider.notifier).loginWithFacebook,
             child: const Text("SigIn In with Facebook"),
           ),
         ],

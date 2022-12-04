@@ -6,6 +6,8 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Authenticator {
+
+  const Authenticator();
   User? get currentUser => FirebaseAuth.instance.currentUser;
 
   UserId? get userId => currentUser?.uid;
@@ -75,14 +77,10 @@ class Authenticator {
     );
 
     try {
-      print("Signing in ");
       await FirebaseAuth.instance.signInWithCredential(oauthCredentials);
       return AuthResult.success;
     } catch (e) {
-      print("the error");
-      print(e);
       return AuthResult.failure;
     }
-    return AuthResult.failure;
   }
 }
