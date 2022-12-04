@@ -1,11 +1,12 @@
 import 'package:codertjay_gram/state/auth/models/auth_result.dart';
 import 'package:codertjay_gram/state/auth/providers/auth_state_provider.dart';
+import 'package:codertjay_gram/state/providers/is_loading_provider.dart';
+import 'package:codertjay_gram/views/components/loading/loading_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'firebase_options.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +38,15 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark),
       home: Consumer(
         builder: (BuildContext context, WidgetRef ref, Widget? child) {
+          // take care of displaying the loading screen
+          ref.listen<bool>(isLoadingProvider, (_, isLoading) {
+            if (isLoading) {
+              LoadingScreen.instance().show(context: context);
+            } else {
+              LoadingScreen.instance().hide();
+            }
+          });
+
           final isLoggedIn =
               ref.watch(authStateProvider).result == AuthResult.success;
           if (isLoggedIn) {
