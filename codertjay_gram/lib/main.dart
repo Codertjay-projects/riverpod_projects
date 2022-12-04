@@ -1,6 +1,3 @@
-import "dart:developer" as devtools show log;
-
-import 'package:codertjay_gram/state/auth/backend/authenticator.dart';
 import 'package:codertjay_gram/state/auth/models/auth_result.dart';
 import 'package:codertjay_gram/state/auth/providers/auth_state_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,11 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'firebase_options.dart';
-//https://codertjay-gram.firebaseapp.com/__/auth/handler
 
-extension Log on Object {
-  void log() => devtools.log(toString());
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,7 +39,6 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, WidgetRef ref, Widget? child) {
           final isLoggedIn =
               ref.watch(authStateProvider).result == AuthResult.success;
-          isLoggedIn.log();
           if (isLoggedIn) {
             return const MainView();
           } else {
@@ -69,7 +61,7 @@ class MainView extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text("Main View")),
       body: Consumer(
-        builder: (BuildContext context, WidgetRef ref, Widget? child) {
+        builder: (BuildContext _, WidgetRef ref, Widget? child) {
           return TextButton(
             onPressed: () async {
               await ref.read(authStateProvider.notifier).logOut();
