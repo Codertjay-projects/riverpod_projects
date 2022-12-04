@@ -60,7 +60,6 @@ class HomePage extends ConsumerWidget {
           TextButton(
             onPressed: () async{
               final result = await Authenticator().loginWithFacebook();
-              result.log();
             },
             child: const Text("SigIn In with Facebook"),
           ),

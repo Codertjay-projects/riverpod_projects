@@ -67,7 +67,7 @@ class Authenticator {
     if (sigInAccount == null) {
       return AuthResult.aborted;
     }
-
+    //
     final googleAuth = await sigInAccount.authentication;
     final oauthCredentials = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
@@ -75,13 +75,14 @@ class Authenticator {
     );
 
     try {
+      print("Signing in ");
       await FirebaseAuth.instance.signInWithCredential(oauthCredentials);
       return AuthResult.success;
     } catch (e) {
+      print("the error");
       print(e);
       return AuthResult.failure;
     }
-
-
+    return AuthResult.failure;
   }
 }
