@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:codertjay_gram/views/components/constants/strings.dart';
+import 'package:codertjay_gram/views/constants/strings.dart';
 import 'package:codertjay_gram/views/components/loading/loading_screen_controller.dart';
 import 'package:flutter/material.dart';
 
