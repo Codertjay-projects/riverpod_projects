@@ -1,4 +1,4 @@
-import 'package:codertjay_gram/views/constants/strings.dart';
+import 'package:codertjay_gram/views/components/constants/strings.dart';
 import 'package:codertjay_gram/views/components/rich_text/base_text.dart';
 import 'package:codertjay_gram/views/components/rich_text/rich_text_widget.dart';
 import 'package:flutter/material.dart';

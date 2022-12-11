@@ -1,6 +1,6 @@
 import 'package:codertjay_gram/state/auth/providers/auth_state_provider.dart';
-import 'package:codertjay_gram/views/constants/app_colors.dart';
-import 'package:codertjay_gram/views/constants/strings.dart';
+import 'package:codertjay_gram/views/components/constants/app_colors.dart';
+import 'package:codertjay_gram/views/components/constants/strings.dart';
 import 'package:codertjay_gram/views/login/divider_with_margin.dart';
 import 'package:codertjay_gram/views/login/google_button.dart';
 import 'package:codertjay_gram/views/login/login_view_signup_links.dart';

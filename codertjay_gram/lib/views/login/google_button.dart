@@ -1,5 +1,5 @@
-import 'package:codertjay_gram/views/constants/app_colors.dart';
-import 'package:codertjay_gram/views/constants/strings.dart';
+import 'package:codertjay_gram/views/components/constants/app_colors.dart';
+import 'package:codertjay_gram/views/components/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
